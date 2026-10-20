@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>开始写博客这件事 · 林间小筑</title>
+  <meta name="description" content="我关掉过三个博客。这一次，我想换一种写法：不追流量，不求日更，只把想明白的事留下来。">
+  <meta name="author" content="林知远">
+  <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131110" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="开始写博客这件事">
+  <meta property="og:description" content="不追流量，不求日更，只把想明白的事留下来。">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="林间小筑 · RSS" href="../rss.xml">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('linjian-theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <div class="progress-bar" data-progress aria-hidden="true"></div>
+
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">林</span>
+        <span>林间小筑</span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="主导航">
+        <a href="../index.html">首页</a>
+        <a href="../index.html#posts">文章</a>
+        <a href="../about.html">关于</a>
+        <a href="../rss.xml">RSS</a>
+      </nav>
+      <div class="head-tools">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="切换深浅色">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+          </svg>
+        </button>
+        <button class="icon-btn nav-toggle" type="button" aria-label="打开菜单" aria-controls="site-nav" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="post-hero">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="../index.html">首页</a>
+          <span class="sep" aria-hidden="true">/</span>
+          <a href="../index.html#posts">文章</a>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>开始写博客这件事</span>
+        </nav>
+        <h1>开始写博客这件事</h1>
+        <div class="post-meta">
+          <time datetime="2026-10-12">2026 年 10 月 12 日</time>
+          <span class="sep" aria-hidden="true"></span>
+          <span data-read-time>4 分钟阅读</span>
+          <span class="sep" aria-hidden="true"></span>
+          <span>随笔</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="post-layout">
+        <article class="prose" data-article>
+          <p>
+            这是我第四次搭博客。前三次分别死于：折腾主题、等「准备好再写」、以及没有人看。
+          </p>
+          <p>
+            这一次我想清楚了：博客不是产品，不需要增长；它是一种<strong>整理</strong>。
+            写下来的过程，就是把散落在脑子里的东西归位的过程。归位之后，人会长得结实一点。
+          </p>
+
+          <h2>为什么又开始了</h2>
+          <p>
+            直接原因很具体：今年我遇到一个问题——一个 flex 子项在 Safari 里死活不缩。
+            我调了一个下午，最后发现只要加一句 <code>min-width: 0</code>。
+            当时的第一反应是「我早就该知道」，第二反应是「我上次明明也踩过」。
+          </p>
+          <p>
+            第二反应让我有点不安。工作和生活里，这类「踩过、忘了、再踩」的循环太多了。
+            笔记软件里躺着两百多个标签，但我从来不再打开它们。
+            而写一篇可以被别人读到的文章，会逼我把话说完整——这是标签做不到的。
+          </p>
+
+          <h2>这次打算怎么写</h2>
+          <p>三条自律，写在这里当作提醒：</p>
+          <ol>
+            <li><strong>只写想明白的。</strong>半懂不懂的东西，宁可先记在草稿里。文章一旦发出去，它就成了别人可以照着做的东西，得负责。</li>
+            <li><strong>不追更新频率。</strong>月更也好，季更也好。为了「保持活跃」而写的东西，读者一眼就能闻出来。</li>
+            <li><strong>说人话。</strong>能一句话讲完的，不用三句；能用具体例子说清的，不堆抽象名词。</li>
+          </ol>
+
+          <blockquote>
+            <p>写作不是把想法记录下来，而是通过记录，把想法想清楚。</p>
+          </blockquote>
+
+          <h2>关于这个站</h2>
+          <p>
+            技术上它简单得有点过分：没有框架、没有构建、没有数据库。
+            三张 HTML 模板、一份 CSS、一个不到两百行的脚本，就组成了你现在看到的全部。
+          </p>
+          <p>
+            这么做不是为了炫技，而是为了降低「写一篇新文章」的成本。
+            如果我每次更新都要先跑一遍 <code>npm install</code>，那我大概会在第三篇之后放弃——我已经放弃过三次了。
+          </p>
+          <p>
+            现在新增一篇文章的动作是：复制一个 HTML 文件，改标题和正文，在首页加一张卡片。
+            五分钟。足够快，快到没有借口。
+          </p>
+
+          <h2>最后</h2>
+          <p>
+            如果你也在犹豫要不要写点什么，我的建议是：别等。先写一段，哪怕只有三百字，
+            哪怕只有你自己看。写完之后你会发现，想说的其实比以为的多。
+          </p>
+          <p>那么，就从这一篇开始吧。</p>
+
+          <div class="post-foot">
+            <ul class="tags">
+              <li><a class="tag" href="../index.html#tag=随笔">随笔</a></li>
+              <li><a class="tag" href="../index.html#tag=生活">生活</a></li>
+            </ul>
+            <nav class="post-nav" aria-label="上下篇">
+              <a href="modern-css-layout.html" class="prev">
+                <span class="label">← 上一篇</span>
+                <span class="title">用现代 CSS 写一个不会塌的布局</span>
+              </a>
+              <a href="deploy-static-blog.html" class="next">
+                <span class="label">下一篇 →</span>
+                <span class="title">从零把这个博客发布到公网：四种免费方案</span>
+              </a>
+            </nav>
+          </div>
+        </article>
+
+        <aside class="toc" data-toc aria-label="文章目录">
+          <p class="toc-title">目录</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="foot-inner">
+        <div>
+          <strong style="color:var(--ink)">林间小筑</strong>
+          <span>· 慢慢写，认真活。</span>
+        </div>
+        <nav class="foot-links" aria-label="页脚导航">
+          <a href="../index.html">首页</a>
+          <a href="../about.html">关于</a>
+          <a href="../rss.xml">RSS</a>
+        </nav>
+      </div>
+      <p class="foot-sign">© <span data-year>2026</span> 林知远 · 内容采用 CC BY-NC 4.0 授权</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

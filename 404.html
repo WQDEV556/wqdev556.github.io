@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>页面走丢了 · 林间小筑</title>
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131110" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('linjian-theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">林</span>
+        <span>林间小筑</span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="index.html#posts">文章</a>
+        <a href="about.html">关于</a>
+      </nav>
+      <div class="head-tools">
+        <button class="icon-btn nav-toggle" type="button" aria-label="打开菜单" aria-controls="site-nav" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main" class="wrap">
+    <div class="notfound">
+      <p class="code" aria-hidden="true">404</p>
+      <h1>这条小路走到头了</h1>
+      <p>页面可能被移动、改名，或者从来没有存在过。</p>
+      <div style="display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap">
+        <a class="btn btn-primary" href="index.html">回到首页</a>
+        <a class="btn btn-ghost" href="index.html#posts">看看文章</a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <p class="foot-sign" style="margin:0">© <span data-year>2026</span> 林知远 · 林间小筑</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

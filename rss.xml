@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 部署前把两处 https://example.com 换成你的真实域名（channel/link 与每篇的 link） -->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>林间小筑</title>
+    <link>https://example.com/</link>
+    <description>林知远的个人博客：前端技术、阅读笔记与日常思考。</description>
+    <language>zh-CN</language>
+    <lastBuildDate>Sun, 18 Oct 2026 09:00:00 +0800</lastBuildDate>
+    <atom:link href="https://example.com/rss.xml" rel="self" type="application/rss+xml"/>
+
+    <item>
+      <title>从零把这个博客发布到公网：四种免费方案</title>
+      <link>https://example.com/posts/deploy-static-blog.html</link>
+      <guid isPermaLink="true">https://example.com/posts/deploy-static-blog.html</guid>
+      <pubDate>Sun, 18 Oct 2026 09:00:00 +0800</pubDate>
+      <category>部署</category>
+      <description><![CDATA[GitHub Pages、Netlify、Vercel、Cloudflare Pages——同一份静态文件，四条部署路线，附踩坑清单与自定义域名配置。]]></description>
+    </item>
+
+    <item>
+      <title>开始写博客这件事</title>
+      <link>https://example.com/posts/hello-blog.html</link>
+      <guid isPermaLink="true">https://example.com/posts/hello-blog.html</guid>
+      <pubDate>Mon, 12 Oct 2026 09:00:00 +0800</pubDate>
+      <category>随笔</category>
+      <description><![CDATA[我关掉过三个博客。这一次，我想换一种写法：不追流量，不求日更，只把「想明白的事」留下来。]]></description>
+    </item>
+
+    <item>
+      <title>用现代 CSS 写一个不会塌的布局</title>
+      <link>https://example.com/posts/modern-css-layout.html</link>
+      <guid isPermaLink="true">https://example.com/posts/modern-css-layout.html</guid>
+      <pubDate>Mon, 28 Sep 2026 09:00:00 +0800</pubDate>
+      <category>技术</category>
+      <description><![CDATA[Grid、Flex、clamp() 与容器查询：不引入框架，也能写出在 320px 到 4K 之间都稳当的页面。]]></description>
+    </item>
+
+    <item>
+      <title>读《瓦尔登湖》：把生活过成自己的</title>
+      <link>https://example.com/posts/reading-walden.html</link>
+      <guid isPermaLink="true">https://example.com/posts/reading-walden.html</guid>
+      <pubDate>Tue, 15 Sep 2026 09:00:00 +0800</pubDate>
+      <category>阅读</category>
+      <description><![CDATA[梭罗在湖边住了两年两个月。重读这本书，我记下的不是隐居，而是「一个人到底需要多少东西」。]]></description>
+    </item>
+  </channel>
+</rss>

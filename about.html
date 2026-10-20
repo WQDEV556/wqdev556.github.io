@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>关于 · 林间小筑</title>
+  <meta name="description" content="关于林知远：前端工程师，写代码，也写字。这里是我的一些自我介绍与联系方式。">
+  <meta name="author" content="林知远">
+  <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131110" media="(prefers-color-scheme: dark)">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="林间小筑 · RSS" href="rss.xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('linjian-theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">林</span>
+        <span>林间小筑</span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="主导航">
+        <a href="index.html">首页</a>
+        <a href="index.html#posts">文章</a>
+        <a href="about.html" aria-current="page">关于</a>
+        <a href="rss.xml">RSS</a>
+      </nav>
+      <div class="head-tools">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="切换深浅色">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+          </svg>
+        </button>
+        <button class="icon-btn nav-toggle" type="button" aria-label="打开菜单" aria-controls="site-nav" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="wrap">
+      <div class="about-grid">
+        <div>
+          <p class="eyebrow">About</p>
+          <h1>你好，我是林知远。</h1>
+
+          <div class="prose" style="font-size:1.02rem">
+            <p>
+              我是一名前端工程师，日常和浏览器、排版、动画与构建工具打交道。
+              白天写产品代码，晚上写一点自己的东西——这个博客就是那些「自己的东西」的落脚处。
+            </p>
+            <p>
+              我给这里取名「林间小筑」，是因为它很小，也不打算变大。
+              它更像林子里的一间木屋：不临街，不吆喝，路过的人可以进来坐坐，
+              喝杯茶，翻两页，走的时候把门带上就好。
+            </p>
+
+            <h2>我在写什么</h2>
+            <p>三类内容，按我自己的兴趣排序：</p>
+            <ul>
+              <li><strong>技术笔记</strong>——CSS 布局、原生 Web API、工具链，以及那些「当时要是有人告诉我」的坑。</li>
+              <li><strong>阅读札记</strong>——读完一本书后，真正留在我脑子里的那几句话。</li>
+              <li><strong>生活随笔</strong>——散步、做饭、搬家，以及一些没头没尾的念头。</li>
+            </ul>
+            <p>我不追热点，也不保证更新频率。写清楚了才发，写不清楚就先放着。</p>
+
+            <h2>一些时间线</h2>
+            <ul class="timeline">
+              <li>
+                <time datetime="2026-10">2026 年 10 月</time>
+                <h3>重新开始写博客</h3>
+                <p>关掉过三个博客之后，第四次搭起这个小站，决定用最笨的方式：手写 HTML。</p>
+              </li>
+              <li>
+                <time datetime="2024-06">2024 年 6 月</time>
+                <h3>转向前端基础设施</h3>
+                <p>从业务页面转到构建与组件体系，开始认真读规范，而不是只读博客。</p>
+              </li>
+              <li>
+                <time datetime="2021-07">2021 年 7 月</time>
+                <h3>第一份前端工作</h3>
+                <p>第一次把代码提交到真实用户手里，也第一次体会到「兼容性」三个字的重量。</p>
+              </li>
+            </ul>
+
+            <h2>联系我</h2>
+            <p>
+              最直接的方式是邮件：<a href="mailto:hello@example.com">hello@example.com</a>。
+              技术问题欢迎一起讨论；约稿、合作请说明来意。
+              我不常刷社交媒体，但邮件基本都会回。
+            </p>
+            <blockquote>
+              <p>把生活过成自己的，而不是过成别人期待的样子。</p>
+              <cite>—— 某次重读《瓦尔登湖》时记下的话</cite>
+            </blockquote>
+          </div>
+        </div>
+
+        <aside class="about-side">
+          <h2>速览</h2>
+          <dl>
+            <div>
+              <dt>职业</dt>
+              <dd>前端工程师</dd>
+            </div>
+            <div>
+              <dt>常驻</dt>
+              <dd>杭州 · 中国</dd>
+            </div>
+            <div>
+              <dt>在用</dt>
+              <dd>TypeScript / CSS / Node.js</dd>
+            </div>
+            <div>
+              <dt>在读</dt>
+              <dd>《献给阿尔吉侬的花束》</dd>
+            </div>
+            <div>
+              <dt>本站</dt>
+              <dd>纯 HTML + CSS + JS，无框架</dd>
+            </div>
+          </dl>
+
+          <div class="socials">
+            <a href="mailto:hello@example.com" aria-label="发邮件" title="发邮件">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"></rect><path d="M3 7l9 6 9-6"></path></svg>
+            </a>
+            <a href="https://github.com/yourname" aria-label="GitHub" title="GitHub" rel="noopener">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49v-1.7c-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.63.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.9 1.57 2.36 1.12 2.94.86.09-.67.35-1.12.63-1.38-2.22-.26-4.56-1.14-4.56-5.07 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.4 9.4 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.94-2.34 4.8-4.57 5.06.36.32.68.94.68 1.9v2.82c0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2z"></path></svg>
+            </a>
+            <a href="rss.xml" aria-label="RSS 订阅" title="RSS 订阅">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M4 11a9 9 0 0 1 9 9M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1.6" fill="currentColor" stroke="none"></circle></svg>
+            </a>
+          </div>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="foot-inner">
+        <div>
+          <strong style="color:var(--ink)">林间小筑</strong>
+          <span>· 慢慢写，认真活。</span>
+        </div>
+        <nav class="foot-links" aria-label="页脚导航">
+          <a href="index.html">首页</a>
+          <a href="about.html">关于</a>
+          <a href="rss.xml">RSS</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </nav>
+      </div>
+      <p class="foot-sign">© <span data-year>2026</span> 林知远 · 内容采用 CC BY-NC 4.0 授权 · 由纯 HTML/CSS/JS 搭建</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

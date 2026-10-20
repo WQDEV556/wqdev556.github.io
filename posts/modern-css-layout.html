@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>用现代 CSS 写一个不会塌的布局 · 林间小筑</title>
+  <meta name="description" content="Grid、Flex、clamp() 与容器查询：不引入框架，也能写出在 320px 到 4K 之间都稳当的页面。">
+  <meta name="author" content="林知远">
+  <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131110" media="(prefers-color-scheme: dark)">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="用现代 CSS 写一个不会塌的布局">
+  <meta property="og:description" content="Grid、Flex、clamp() 与容器查询的实战用法。">
+  <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="林间小筑 · RSS" href="../rss.xml">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script>
+    (function () {
+      try {
+        var t = localStorage.getItem('linjian-theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+  <div class="progress-bar" data-progress aria-hidden="true"></div>
+
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="../index.html">
+        <span class="brand-mark" aria-hidden="true">林</span>
+        <span>林间小筑</span>
+      </a>
+      <nav class="nav" id="site-nav" aria-label="主导航">
+        <a href="../index.html">首页</a>
+        <a href="../index.html#posts">文章</a>
+        <a href="../about.html">关于</a>
+        <a href="../rss.xml">RSS</a>
+      </nav>
+      <div class="head-tools">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="切换深浅色">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+          </svg>
+        </button>
+        <button class="icon-btn nav-toggle" type="button" aria-label="打开菜单" aria-controls="site-nav" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <div class="post-hero">
+      <div class="wrap">
+        <nav class="breadcrumb" aria-label="面包屑">
+          <a href="../index.html">首页</a>
+          <span class="sep" aria-hidden="true">/</span>
+          <a href="../index.html#posts">文章</a>
+          <span class="sep" aria-hidden="true">/</span>
+          <span>现代 CSS 布局</span>
+        </nav>
+        <h1>用现代 CSS 写一个不会塌的布局</h1>
+        <div class="post-meta">
+          <time datetime="2026-09-28">2026 年 9 月 28 日</time>
+          <span class="sep" aria-hidden="true"></span>
+          <span data-read-time>7 分钟阅读</span>
+          <span class="sep" aria-hidden="true"></span>
+          <span>技术</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wrap">
+      <div class="post-layout">
+        <article class="prose" data-article>
+          <p>
+            「布局塌了」通常不是代码写错了，而是<strong>约束没有表达清楚</strong>：
+            谁负责换行、谁负责收缩、最小宽度是多少、字号什么时候变。
+            现代 CSS 的好处是，这些约束可以直接写进声明里，不需要靠一堆媒体查询兜底。
+          </p>
+          <p>这篇用四个小片段，把我日常最常用的写法整理一遍。</p>
+
+          <h2>一、宽度：别写死，写区间</h2>
+          <p>
+            容器宽度最常见的错误是 <code>width: 1200px</code>。它在大屏上两侧空得慌，在手机上直接横向滚动。
+            现在只需要一行：
+          </p>
+          <div class="code-block">
+            <div class="code-head"><span>css</span></div>
+            <pre><code class="language-css">.wrap {
+  width: min(100% - 2.5rem, 1080px);
+  margin-inline: auto;
+}</code></pre>
+          </div>
+          <p>
+            <code>min()</code> 的意思是「两者取小」：屏幕窄时留出 1.25rem 的边距，屏幕宽时封顶 1080px。
+            不需要媒体查询，也不会出现「刚好在断点附近抖动」的尴尬。
+          </p>
+
+          <h2>二、页面骨架：用 Grid 表达列</h2>
+          <p>
+            两栏、三栏布局我会直接上 Grid，让「列」这件事显式声明出来。
+            关键是 <code>minmax(0, 1fr)</code>——中间的 <code>0</code> 允许内容收缩，
+            否则长单词、代码块、表格会把整列撑破。
+          </p>
+          <div class="code-block">
+            <div class="code-head"><span>css</span></div>
+            <pre><code class="language-css">.page {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(1rem, 2.5vw, 2rem);
+}
+
+@media (min-width: 60rem) {
+  .page {
+    /* 侧栏 220px，正文自适应，再来一个侧栏 */
+    grid-template-columns: 220px minmax(0, 68ch) 220px;
+    justify-content: center;
+  }
+}</code></pre>
+          </div>
+          <p>
+            <code>68ch</code> 是我很喜欢的一个细节：它把正文限制在「一行大约 68 个字符」，
+            这是阅读舒适度的经典区间。窗口再宽，行也不会长得让人串行。
+          </p>
+
+          <h2>三、字号：用 clamp() 做流体排版</h2>
+          <p>
+            标题字号以前要写三四条媒体查询。现在一条就够，中间那个 <code>vw</code> 项负责随视口插值：
+          </p>
+          <div class="code-block">
+            <div class="code-head"><span>css</span></div>
+            <pre><code class="language-css">h1 {
+  font-size: clamp(2rem, 1.2rem + 3.2vw, 3.4rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+/* 正文：小屏别小于 16px，大屏别大于 19px */
+body {
+  font-size: clamp(1rem, 0.96rem + 0.2vw, 1.19rem);
+  line-height: 1.75;
+}</code></pre>
+          </div>
+          <p>
+            注意 <code>clamp(最小值, 理想值, 最大值)</code> 的顺序。
+            理想值里混一点 <code>rem</code> 是刻意的：如果只用 <code>vw</code>，用户放大页面时字号不会跟着变大，可访问性会翻车。
+          </p>
+          <p>另外强烈建议给标题加上 <code>text-wrap: balance</code>，它会自动把多行标题断得更均匀，成本为零。</p>
+
+          <h2>四、组件：用容器查询，而不是视口查询</h2>
+          <p>
+            这是近几年最改变写法的一个特性。卡片放在侧栏和放在主区域，宽度完全不同；
+            用媒体查询只能根据「窗口多宽」猜，用容器查询则可以直接问「我爹多宽」：
+          </p>
+          <div class="code-block">
+            <div class="code-head"><span>css</span></div>
+            <pre><code class="language-css">.card-list {
+  container-type: inline-size;
+}
+
+.card {
+  display: grid;
+  gap: 1rem;
+}
+
+/* 只有当这张卡片所在的容器 ≥ 34rem 时，才变成左右结构 */
+@container (min-width: 34rem) {
+  .card {
+    grid-template-columns: 180px minmax(0, 1fr);
+    align-items: center;
+  }
+}</code></pre>
+          </div>
+          <p>
+            组件因此变得「可搬运」：同一个 <code>.card</code> 放进窄侧栏自动竖排，放进宽主区自动横排，
+            完全不需要为它单独写一套断点。
+          </p>
+
+          <h2>五、几个容易忘的收尾</h2>
+          <ul>
+            <li><code>min-width: 0</code>：flex / grid 子项里有长内容时，不加这句就缩不下去。我为此浪费过一个下午。</li>
+            <li><code>aspect-ratio</code>：封面图别再用 padding-top 百分比的老 hack 了。</li>
+            <li><code>dvh</code> 而不是 <code>vh</code>：移动端浏览器地址栏收起时，<code>100vh</code> 会露出一截空白。</li>
+            <li><code>gap</code>：能不用 margin 就不用，布局容器里的间距交给容器自己管。</li>
+            <li><code>:focus-visible</code>：去掉 outline 之前，先给它一个更好看的替代。</li>
+          </ul>
+
+          <h2>小结</h2>
+          <p>
+            这些写法没有一个需要框架。它们的共同点是：<strong>把约束写在声明里，而不是写在脑子里</strong>。
+            布局之所以「塌」，往往是因为我们默认了一些浏览器并不知道的前提。
+          </p>
+          <p>把前提写出来，页面就稳了。剩下的，交给浏览器。</p>
+
+          <div class="post-foot">
+            <ul class="tags">
+              <li><a class="tag" href="../index.html#tag=技术">技术</a></li>
+              <li><a class="tag" href="../index.html#tag=前端">前端</a></li>
+            </ul>
+            <nav class="post-nav" aria-label="上下篇">
+              <a href="reading-walden.html" class="prev">
+                <span class="label">← 上一篇</span>
+                <span class="title">读《瓦尔登湖》：把生活过成自己的</span>
+              </a>
+              <a href="hello-blog.html" class="next">
+                <span class="label">下一篇 →</span>
+                <span class="title">开始写博客这件事</span>
+              </a>
+            </nav>
+          </div>
+        </article>
+
+        <aside class="toc" data-toc aria-label="文章目录">
+          <p class="toc-title">目录</p>
+        </aside>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="foot-inner">
+        <div>
+          <strong style="color:var(--ink)">林间小筑</strong>
+          <span>· 慢慢写，认真活。</span>
+        </div>
+        <nav class="foot-links" aria-label="页脚导航">
+          <a href="../index.html">首页</a>
+          <a href="../about.html">关于</a>
+          <a href="../rss.xml">RSS</a>
+        </nav>
+      </div>
+      <p class="foot-sign">© <span data-year>2026</span> 林知远 · 内容采用 CC BY-NC 4.0 授权</p>
+    </div>
+  </footer>
+
+  <script src="../assets/js/main.js"></script>
+</body>
+</html>

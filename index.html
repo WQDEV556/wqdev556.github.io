@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>林间小筑 · 一个写字的地方</title>
+  <meta name="description" content="林知远的个人博客：记录前端技术、阅读笔记与日常思考。慢慢写，认真活。">
+  <meta name="author" content="林知远">
+  <meta name="theme-color" content="#faf7f2" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#131110" media="(prefers-color-scheme: dark)">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="林间小筑 · 一个写字的地方">
+  <meta property="og:description" content="记录前端技术、阅读笔记与日常思考。">
+  <meta property="og:site_name" content="林间小筑">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="alternate" type="application/rss+xml" title="林间小筑 · RSS" href="rss.xml">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <noscript>
+    <style>.reveal{opacity:1;transform:none}</style>
+  </noscript>
+  <script>
+    /* 提前应用主题，避免刷新时白屏闪一下 */
+    (function () {
+      try {
+        var t = localStorage.getItem('linjian-theme');
+        if (t !== 'dark' && t !== 'light') {
+          t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        }
+        document.documentElement.setAttribute('data-theme', t);
+      } catch (e) {}
+    })();
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到正文</a>
+
+  <header class="site-head">
+    <div class="wrap head-inner">
+      <a class="brand" href="index.html">
+        <span class="brand-mark" aria-hidden="true">林</span>
+        <span>林间小筑</span>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="主导航">
+        <a href="index.html" aria-current="page">首页</a>
+        <a href="index.html#posts">文章</a>
+        <a href="about.html">关于</a>
+        <a href="rss.xml">RSS</a>
+      </nav>
+
+      <div class="head-tools">
+        <button class="icon-btn" type="button" data-theme-toggle aria-label="切换深浅色">
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="4"></circle>
+            <path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"></path>
+          </svg>
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path>
+          </svg>
+        </button>
+        <button class="icon-btn nav-toggle" type="button" aria-label="打开菜单" aria-controls="site-nav" aria-expanded="false">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ============ Hero ============ -->
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <p class="eyebrow">Blog · Est. 2026</p>
+          <h1>把想说的话，<br>慢慢写进<em>林间</em>。</h1>
+          <p class="hero-lead">
+            我是<strong>林知远</strong>，一名前端工程师。这里放一些关于
+            <strong>代码、阅读和生活</strong>的笔记——不追热点，只写自己真正想过的事。
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#posts">
+              开始阅读
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg>
+            </a>
+            <a class="btn btn-ghost" href="about.html">关于我</a>
+          </div>
+
+          <dl class="hero-stats">
+            <div><dt>篇文章</dt><dd>4</dd></div>
+            <div><dt>个标签</dt><dd>7</dd></div>
+            <div><dt>始于</dt><dd>2026</dd></div>
+          </dl>
+        </div>
+
+        <div class="hero-portrait">
+          <div class="portrait-wrap">
+            <div class="portrait-frame">
+              <svg viewBox="0 0 300 300" role="img" aria-label="作者插画头像：戴眼镜、围围巾的男孩">
+                <defs>
+                  <linearGradient id="sky" x1="0" y1="0" x2="1" y2="1">
+                    <stop offset="0" stop-color="#f6e7d3"></stop>
+                    <stop offset="1" stop-color="#d9a678"></stop>
+                  </linearGradient>
+                  <linearGradient id="shirt" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0" stop-color="#3f6b5e"></stop>
+                    <stop offset="1" stop-color="#264a41"></stop>
+                  </linearGradient>
+                </defs>
+                <rect width="300" height="300" fill="url(#sky)"></rect>
+                <circle cx="228" cy="70" r="26" fill="#f7d9a8" opacity=".9"></circle>
+                <path d="M-10 210 L70 130 L130 200 L190 118 L310 215 L310 300 L-10 300 Z" fill="#c98d5e" opacity=".45"></path>
+                <path d="M-10 232 L60 176 L120 226 L200 160 L310 236 L310 300 L-10 300 Z" fill="#a76b43" opacity=".5"></path>
+                <path d="M150 292c-46 0-78-24-78-46 0-24 28-40 50-46h56c22 6 50 22 50 46 0 22-32 46-78 46z" fill="url(#shirt)"></path>
+                <path d="M110 214c10 12 24 20 40 20s30-8 40-20l-14-8h-52z" fill="#f2e3cf"></path>
+                <path d="M150 196c-26 0-44-18-44-44v-22c0-24 18-42 44-42s44 18 44 42v22c0 26-18 44-44 44z" fill="#f4d3b3"></path>
+                <path d="M106 132c0-28 20-46 44-46s44 18 44 46c-12-6-22-16-28-28-8 12-32 24-60 28z" fill="#2e2620"></path>
+                <g fill="none" stroke="#3a302a" stroke-width="3">
+                  <rect x="112" y="122" width="30" height="22" rx="8"></rect>
+                  <rect x="158" y="122" width="30" height="22" rx="8"></rect>
+                  <path d="M142 132h16M112 130l-6-4M188 130l6-4"></path>
+                </g>
+                <g fill="#2e2620">
+                  <circle cx="127" cy="133" r="3.4"></circle>
+                  <circle cx="173" cy="133" r="3.4"></circle>
+                </g>
+                <path d="M140 160c4 4 16 4 20 0" fill="none" stroke="#a8624a" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M124 112c4-4 12-4 16 0M160 112c4-4 12-4 16 0" fill="none" stroke="#3a302a" stroke-width="3" stroke-linecap="round"></path>
+                <path d="M112 196c14 10 26 14 38 14s24-4 38-14l6 18c-14 12-28 18-44 18s-30-6-44-18z" fill="#c0563a"></path>
+                <path d="M186 208l14 40-16 6-10-38z" fill="#a8482f"></path>
+              </svg>
+            </div>
+            <span class="portrait-badge"><span class="dot" aria-hidden="true"></span>正在写第 5 篇</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ 文章 ============ -->
+    <section class="section" id="posts">
+      <div class="wrap">
+        <div class="section-head">
+          <div>
+            <h2>最新文章</h2>
+            <p>按时间倒序排列 · 当前显示 <span data-count>4</span> 篇</p>
+          </div>
+          <a class="section-link" href="rss.xml">订阅 RSS</a>
+        </div>
+
+        <!-- 精选 -->
+        <article class="featured reveal">
+          <div class="card-cover cover-warm">
+            <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="60" cy="60" r="40"></circle>
+              <path d="M60 32v56M32 60h56"></path>
+              <path d="M60 20l6 12-6 8-6-8zM60 100l-6-12 6-8 6 8zM20 60l12-6 8 6-8 6zM100 60l-12 6-8-6 8-6z"></path>
+            </svg>
+          </div>
+          <div class="featured-body">
+            <span class="kicker">精选 · 部署</span>
+            <h3><a href="posts/deploy-static-blog.html">从零把这个博客发布到公网：四种免费方案</a></h3>
+            <p>GitHub Pages、Netlify、Vercel、Cloudflare Pages——同一份静态文件，四条部署路线，附踩坑清单与自定义域名配置。</p>
+            <div class="card-meta">
+              <time datetime="2026-10-18">2026 年 10 月 18 日</time>
+              <span class="sep" aria-hidden="true"></span>
+              <span>9 分钟阅读</span>
+            </div>
+          </div>
+        </article>
+
+        <!-- 工具栏 -->
+        <div class="toolbar">
+          <label class="search">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M20 20l-3.5-3.5"></path></svg>
+            <input type="search" placeholder="搜索标题、标签或摘要…" aria-label="搜索文章" data-search>
+          </label>
+
+          <div class="filters" role="group" aria-label="按标签筛选">
+            <button class="chip" type="button" data-filter="all" aria-pressed="true">全部</button>
+            <button class="chip" type="button" data-filter="技术" aria-pressed="false">技术</button>
+            <button class="chip" type="button" data-filter="前端" aria-pressed="false">前端</button>
+            <button class="chip" type="button" data-filter="阅读" aria-pressed="false">阅读</button>
+            <button class="chip" type="button" data-filter="随笔" aria-pressed="false">随笔</button>
+            <button class="chip" type="button" data-filter="生活" aria-pressed="false">生活</button>
+            <button class="chip" type="button" data-filter="部署" aria-pressed="false">部署</button>
+          </div>
+        </div>
+
+        <ul class="post-grid" data-post-list>
+          <li class="card reveal" data-post data-tags="技术 部署" data-search="从零把这个博客发布到公网 四种免费方案 github pages netlify vercel cloudflare pages 静态 部署 域名">
+            <div class="card-cover cover-warm" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 92h80M32 92V56l28-20 28 20v36"></path>
+                <path d="M50 92V70h20v22"></path>
+                <path d="M60 16v12M42 24l6 8M78 24l-6 8"></path>
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <time datetime="2026-10-18">10 月 18 日</time>
+                <span class="sep" aria-hidden="true"></span>
+                <span>部署</span>
+              </div>
+              <h3><a href="posts/deploy-static-blog.html">从零把这个博客发布到公网：四种免费方案</a></h3>
+              <p>同一份纯静态文件，可以放上 GitHub Pages、Netlify、Vercel 或 Cloudflare Pages。这篇把四条路都走一遍，并整理常见 404 与路径问题。</p>
+              <div class="card-foot">
+                <ul class="tags">
+                  <li><a class="tag" href="index.html#tag=技术">技术</a></li>
+                  <li><a class="tag" href="index.html#tag=部署">部署</a></li>
+                </ul>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="card reveal" data-post data-tags="随笔 生活" data-search="开始写博客这件事 为什么写 长期主义 随笔 生活 写作">
+            <div class="card-cover cover-forest" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M60 100V52"></path>
+                <path d="M60 54C60 34 46 24 28 22c2 18 12 30 32 32z"></path>
+                <path d="M60 66c0-16 12-26 30-28-2 16-12 26-30 28z"></path>
+                <path d="M44 100h32"></path>
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <time datetime="2026-10-12">10 月 12 日</time>
+                <span class="sep" aria-hidden="true"></span>
+                <span>随笔</span>
+              </div>
+              <h3><a href="posts/hello-blog.html">开始写博客这件事</a></h3>
+              <p>我关掉过三个博客。这一次，我想换一种写法：不追流量，不求日更，只把「想明白的事」留下来。</p>
+              <div class="card-foot">
+                <ul class="tags">
+                  <li><a class="tag" href="index.html#tag=随笔">随笔</a></li>
+                  <li><a class="tag" href="index.html#tag=生活">生活</a></li>
+                </ul>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="card reveal" data-post data-tags="技术 前端" data-search="用现代 CSS 写一个不会塌的布局 grid flex clamp 响应式 容器查询">
+            <div class="card-cover cover-dusk" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="18" y="24" width="84" height="72" rx="8"></rect>
+                <path d="M18 46h84M42 46v50"></path>
+                <path d="M54 60h34M54 72h24M54 84h30"></path>
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <time datetime="2026-09-28">9 月 28 日</time>
+                <span class="sep" aria-hidden="true"></span>
+                <span>技术</span>
+              </div>
+              <h3><a href="posts/modern-css-layout.html">用现代 CSS 写一个不会塌的布局</a></h3>
+              <p>Grid、Flex、clamp() 与容器查询：不引入框架，也能写出在 320px 到 4K 之间都稳当的页面。附完整代码。</p>
+              <div class="card-foot">
+                <ul class="tags">
+                  <li><a class="tag" href="index.html#tag=技术">技术</a></li>
+                  <li><a class="tag" href="index.html#tag=前端">前端</a></li>
+                </ul>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </li>
+
+          <li class="card reveal" data-post data-tags="阅读 生活" data-search="读瓦尔登湖 梭罗 极简 生活 阅读 笔记">
+            <div class="card-cover cover-sand" aria-hidden="true">
+              <svg viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 96c10-4 14-14 14-28V40c0-10 6-16 16-16h30v72"></path>
+                <path d="M52 96V32M52 40h24M52 56h24M52 72h24"></path>
+                <path d="M22 96h76"></path>
+              </svg>
+            </div>
+            <div class="card-body">
+              <div class="card-meta">
+                <time datetime="2026-09-15">9 月 15 日</time>
+                <span class="sep" aria-hidden="true"></span>
+                <span>阅读</span>
+              </div>
+              <h3><a href="posts/reading-walden.html">读《瓦尔登湖》：把生活过成自己的</a></h3>
+              <p>梭罗在湖边住了两年两个月。重读这本书，我记下的不是隐居，而是「一个人到底需要多少东西」。</p>
+              <div class="card-foot">
+                <ul class="tags">
+                  <li><a class="tag" href="index.html#tag=阅读">阅读</a></li>
+                  <li><a class="tag" href="index.html#tag=生活">生活</a></li>
+                </ul>
+                <span class="arrow" aria-hidden="true">→</span>
+              </div>
+            </div>
+          </li>
+        </ul>
+
+        <div class="empty-state" data-empty hidden>
+          没有找到匹配的文章。换个关键词，或点「全部」看看。
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="foot-inner">
+        <div>
+          <strong style="color:var(--ink)">林间小筑</strong>
+          <span>· 慢慢写，认真活。</span>
+        </div>
+        <nav class="foot-links" aria-label="页脚导航">
+          <a href="index.html">首页</a>
+          <a href="about.html">关于</a>
+          <a href="rss.xml">RSS</a>
+          <a href="sitemap.xml">Sitemap</a>
+        </nav>
+      </div>
+      <p class="foot-sign">© <span data-year>2026</span> 林知远 · 内容采用 CC BY-NC 4.0 授权 · 由纯 HTML/CSS/JS 搭建</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
